@@ -7,9 +7,24 @@
       "attribution": "<a href=\"https://github.com/protomaps/basemaps\">Protomaps</a> © <a href=\"https://openstreetmap.org\">OpenStreetMap</a>",
       "type": "vector",
       "tiles": [
-        "https://api.protomaps.com/tiles/v3/{z}/{x}/{y}.mvt?key=6f5c006d33e1a422"
+        "https://api.protomaps.com/tiles/v3/{z}/{x}/{y}.mvt?key=1a833b4a9ada2936"
       ],
       "maxzoom": 15
+    },
+    "s6nimlt": {
+      "type": "vector",
+      "url": "https://localhost:3000/tilejson.json"
+    },
+    "shaded_relief": {
+      "type": "raster-dem",
+      "tiles": [
+        "https://tiles.stadiamaps.com/data/terrarium/{z}/{x}/{y}.png",
+        ""
+      ],
+      "minzoom": 0,
+      "maxzoom": 14,
+      "tileSize": 512,
+      "encoding": "terrarium"
     }
   },
   "sprite": "https://protomaps.github.io/basemaps-assets/sprites/v3/light",
@@ -18,8 +33,6 @@
     {
       "id": "background",
       "type": "background",
-      "minzoom": 2,
-      "maxzoom": 22,
       "paint": {"background-color": "#cccccc"}
     },
     {
@@ -27,7 +40,7 @@
       "type": "fill",
       "source": "protomaps",
       "source-layer": "earth",
-      "paint": {"fill-color": "#e0e0e0"}
+      "paint": {"fill-color": "rgba(255, 251, 251, 1)"}
     },
     {
       "id": "landuse_park",
@@ -55,10 +68,11 @@
           ["linear"],
           ["zoom"],
           0,
-          "#cfddd5",
+          "#c5c5c5",
           12,
-          "#9cd3b4"
-        ]
+          "#c5c5c5"
+        ],
+        "fill-opacity": 0.15
       }
     },
     {
@@ -121,6 +135,7 @@
         "any",
         ["in", "pmap:kind", "military", "naval_base", "airfield"]
       ],
+      "layout": {"visibility": "none"},
       "paint": {"fill-color": "#c6dcdc"}
     },
     {
@@ -138,10 +153,11 @@
           ["linear"],
           ["zoom"],
           0,
-          "#d0ded0",
+          "#c5c5c5",
           12,
-          "#a0d9a0"
-        ]
+          "#c5c5c5"
+        ],
+        "fill-opacity": 0.1
       }
     },
     {
@@ -156,10 +172,11 @@
           ["linear"],
           ["zoom"],
           0,
-          "#cedcd7",
+          "#c5c5c5",
           12,
-          "#99d2bb"
-        ]
+          "#c5c5c5"
+        ],
+        "fill-opacity": 0.1
       }
     },
     {
@@ -176,7 +193,7 @@
       "source": "protomaps",
       "source-layer": "natural",
       "filter": ["==", "pmap:kind", "sand"],
-      "paint": {"fill-color": "#e2e0d7"}
+      "paint": {"fill-color": "#c5c5c5", "fill-opacity": 0.1}
     },
     {
       "id": "landuse_aerodrome",
@@ -234,7 +251,7 @@
       "type": "fill",
       "source": "protomaps",
       "source-layer": "water",
-      "paint": {"fill-color": "#80deea"}
+      "paint": {"fill-color": "rgba(236, 236, 236, 1)"}
     },
     {
       "id": "physical_line_stream",
@@ -1625,7 +1642,8 @@
         "text-size": ["interpolate", ["linear"], ["zoom"], 3, 10, 10, 12],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
-        "text-transform": "uppercase"
+        "text-transform": "uppercase",
+        "visibility": "none"
       },
       "paint": {"text-color": "#ffffff"}
     },
@@ -1640,7 +1658,8 @@
         "text-field": ["get", "name"],
         "text-size": ["interpolate", ["linear"], ["zoom"], 3, 0, 6, 12, 10, 12],
         "text-letter-spacing": 0.1,
-        "text-max-width": 9
+        "text-max-width": 9,
+        "visibility": "none"
       },
       "paint": {"text-color": "#ffffff"}
     },
@@ -1737,7 +1756,8 @@
           2,
           22,
           2
-        ]
+        ],
+        "visibility": "none"
       },
       "paint": {
         "text-color": "#8f8f8f",
@@ -1752,6 +1772,7 @@
       "source-layer": "places",
       "maxzoom": 8,
       "filter": ["==", "pmap:kind", "locality"],
+      "layout": {"visibility": "none"},
       "paint": {
         "circle-radius": 2,
         "circle-stroke-width": 1.5,
@@ -1860,7 +1881,8 @@
           2
         ],
         "text-anchor": ["step", ["zoom"], "left", 8, "center"],
-        "text-radial-offset": 0.2
+        "text-radial-offset": 0.2,
+        "visibility": "none"
       },
       "paint": {
         "text-color": "#5c5c5c",
@@ -1887,7 +1909,8 @@
         "text-size": ["interpolate", ["linear"], ["zoom"], 3, 11, 7, 16],
         "text-radial-offset": 0.2,
         "text-anchor": "center",
-        "text-transform": "uppercase"
+        "text-transform": "uppercase",
+        "visibility": "none"
       },
       "paint": {
         "text-color": "#b3b3b3",
@@ -1952,10 +1975,18 @@
           22,
           2
         ],
-        "text-transform": "uppercase"
+        "text-transform": "uppercase",
+        "visibility": "none"
       },
       "paint": {"text-color": "#a3a3a3"}
+    },
+    {
+      "id": "shaded_relief",
+      "type": "hillshade",
+      "source": "shaded_relief",
+      "layout": {"visibility": "visible"},
+      "paint": {"hillshade-exaggeration": 0.13}
     }
   ],
-  "id": "7q9m42j"
+  "id": "x9bjt48"
 }
