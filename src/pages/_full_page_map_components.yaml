@@ -11,8 +11,8 @@
 
 - id: 'vector-tile'
   label: 'Vector Tiles'
-  toggle: true
-  visible: true
+  toggle: false
+  visible: false
   data-type: 'vector'
   layer-type: 'line'
   source-layer: 'sequence'
@@ -21,7 +21,7 @@
 
 - id: 'test-raster'
   label: 'OSM Tiles'
-  toggle: true  
+  toggle: false  
   visible: false
   data-type: 'raster'
   layer-type: 'raster'
@@ -29,7 +29,7 @@
 
 - id: 'test-image'
   label: 'Image Overlay'
-  toggle: true  
+  toggle: false  
   visible: false
   data-type: 'image'
   layer-type: 'image'
